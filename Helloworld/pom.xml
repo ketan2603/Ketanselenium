@@ -5,8 +5,12 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>Demo Project</name>
   <description>This is sample test project</description>
+    <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+</properties>
   
-  <dependencies>
+  <dependencies> 
 <!-- https://mvnrepository.com/artifact/org.testng/testng -->
 <dependency>
     <groupId>org.testng</groupId>
@@ -15,4 +19,5 @@
     <scope>test</scope>
 </dependency>
   </dependencies>
+
 </project>
