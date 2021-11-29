@@ -1,0 +1,42 @@
+package com.test.project;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+public class Testhello {
+	WebDriver driver;
+	@Test(priority = 1)
+	public void login()  {
+
+    	System.setProperty("webdriver.chrome.driver", "E:\\bytes\\chromedirver\\chromedriver.exe");
+    	WebDriver driver=new ChromeDriver();
+        driver.get("https://dev2.thebest.directory/admin/");	
+	
+		//System.out.println("Hello world");
+		
+		WebElement emailname = driver.findElement(By.name("email"));
+		emailname.sendKeys("testing.admindev2@yopmail.com");
+
+		WebElement password = driver.findElement(By.name("password"));
+		password.sendKeys("Bytes@123");
+
+		WebElement login =driver.findElement(By.xpath("/html/body/app-root/div/div/app-login/div/div/div[2]/form/div[4]/button"));
+		login.click();
+				}
+	@Test(priority = 2)
+	public void article() throws InterruptedException  {
+		
+		WebElement aclick= driver.findElement(By.xpath("/html/body/app-root/div/app-navbar/div/div/nav/div/ul/li[2]/a"));
+		aclick.click();
+		
+		Thread.sleep(10);
+		
+	}	
+	
+	}
+

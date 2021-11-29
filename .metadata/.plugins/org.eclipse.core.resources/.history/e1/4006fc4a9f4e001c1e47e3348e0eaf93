@@ -1,0 +1,77 @@
+package com.test.project;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.Select;
+
+public class Testhello {
+	WebDriver driver;
+	@Test(priority = 1)
+	public void login() throws InterruptedException  {
+
+    	System.setProperty("webdriver.chrome.driver", "E:\\bytes\\chromedirver\\chromedriver.exe");
+    	this.driver=new ChromeDriver();
+    	driver.manage().window().maximize();
+        driver.get("https://dev2.thebest.directory/admin/");	
+	
+		//System.out.println("Hello world");
+		
+		WebElement emailname = driver.findElement(By.name("email"));
+		emailname.sendKeys("testing.admindev2@yopmail.com");
+
+		WebElement password = driver.findElement(By.name("password"));
+		password.sendKeys("Bytes@123");
+
+		WebElement login =driver.findElement(By.xpath("/html/body/app-root/div/div/app-login/div/div/div[2]/form/div[4]/button"));
+		login.click();
+		
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+	
+				}
+	
+	@SuppressWarnings("deprecation")
+	@Test(priority = 2)
+	public void article() throws InterruptedException  {
+		
+		WebElement aclick= driver.findElement(By.xpath("/html/body/app-root/div/app-navbar/div/div/nav/div/ul/li[2]"));
+		aclick.click();
+	
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	
+		WebElement search =driver.findElement(By.xpath("/html/body/app-root/div/div/app-admin-article-list/div/div/div[2]/div/div[1]/div[1]/input"));
+		search.sendKeys("Loream New Latest Article 27 Sponsored By:Evelyn Patel");
+		search.sendKeys(Keys.ENTER);
+		Thread.sleep(10);
+		search.clear();
+		
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		Select cetegory= new Select(driver.findElement(By.id("category")));
+		Thread.sleep(30);
+		cetegory.selectByVisibleText("FEGLI");
+		Thread.sleep(30);
+		cetegory.selectByIndex(4);
+		Thread.sleep(30);
+		cetegory.deselectByIndex(4);
+		
+		
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		Select autosharef= new Select(driver.findElement(By.id("autoshare")));
+		Thread.sleep(30);
+		autosharef.selectByVisibleText("Yes");
+		Thread.sleep(30);
+		autosharef.selectByValue("No");	
+		Thread.sleep(30);
+		autosharef.deselectByValue("No");
+		
+	}	
+	
+	}
+

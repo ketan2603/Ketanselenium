@@ -1,0 +1,19 @@
+package com.test.project;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class Test extends Testhello {
+	
+	@Test(priority=2)
+	public void article() throws InterruptedException  {
+		
+		WebElement aclick= ((WebDriver) driver).findElement(By.xpath("/html/body/app-root/div/app-navbar/div/div/nav/div/ul/li[2]/a"));
+		aclick.click();
+		
+		Thread.sleep(10);
+		
+	}	
+
+}

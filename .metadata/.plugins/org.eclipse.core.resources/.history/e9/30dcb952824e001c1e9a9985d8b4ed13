@@ -1,0 +1,34 @@
+package com.test.project;
+
+import org.testng.annotations.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+@Test(priority=1)
+public class Testhello {
+	
+	public void main(String[] args)  {
+
+		
+    	System.setProperty("webdriver.chrome.driver", "E:\\bytes\\chromedirver\\chromedriver.exe");
+    	WebDriver driver1=new ChromeDriver();
+        driver1.get("https://dev2.thebest.directory/admin/");	
+	
+		//System.out.println("Hello world");
+		
+		WebElement emailname = driver1.findElement(By.name("email"));
+		emailname.sendKeys("testing.admindev2@yopmail.com");
+
+		WebElement password = driver1.findElement(By.name("password"));
+		password.sendKeys("Bytes@123");
+
+		WebElement login =driver1.findElement(By.xpath("/html/body/app-root/div/div/app-login/div/div/div[2]/form/div[4]/button"));
+		login.click();
+				}
+	
+	
+		
+	}
+
